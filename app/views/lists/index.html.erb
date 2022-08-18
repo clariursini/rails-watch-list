@@ -16,7 +16,7 @@
       </div>
       <div class="cards">
         <% @lists.each do |list| %>
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://images.unsplash.com/photo-1526007413281-c202e21eedf3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= list.picture %>)">
                 <div class="list-card">
                   <%= link_to list.name, list_path(list) %>
                 </div>
