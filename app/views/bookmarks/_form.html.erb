@@ -1,0 +1,7 @@
+<div class="form">
+  <%= simple_form_for [list, bookmark] do |r| %>
+    <%= r.input :comment %>
+    <%= r.association :movie, collection: Movie.all.order(:title), prompt: "Choose a Movie"  %>
+    <%= r.button :submit, class: "btn btn-primary" %>
+    <% end %>
+</div><br>
