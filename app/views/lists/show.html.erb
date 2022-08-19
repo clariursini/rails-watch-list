@@ -48,7 +48,7 @@
     <h2>Add a movie</h2>
     <div class="form">
         <div class="form">
-          <%= simple_form_for [@list, Bookmark.new] do |r| %>
+          <%= simple_form_for [@list, @bookmark] do |r| %>
             <%= r.input :comment %>
             <%= r.association :movie, collection: Movie.all.order(:title), prompt: "Choose a Movie"  %>
             <%= r.button :submit, class: "btn btn-primary" %>

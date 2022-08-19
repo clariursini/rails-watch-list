@@ -5,7 +5,7 @@ class ListsController < ApplicationController
   end
 
   def show
-    @bookmarks = Bookmark.new
+    @bookmark = Bookmark.new
   end
 
   def new
@@ -17,7 +17,7 @@ class ListsController < ApplicationController
     if @list.save
       redirect_to list_path(@list)
     else
-      render :new, status: :unprocessable_entity
+      render :show, status: :unprocessable_entity
     end
   end
 
