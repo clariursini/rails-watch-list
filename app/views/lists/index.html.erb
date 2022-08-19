@@ -17,11 +17,27 @@
       <div class="cards">
         <% @lists.each do |list| %>
             <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= list.picture %>)">
-                <div class="list-card">
-                  <%= link_to list.name, list_path(list) %>
+                <div class="card-content-index">
+                  <div class="card-text">
+                    <%= link_to list.name, list_path(list) %>
+                  </div>
+                  <div class="list-delete">
+                    <%= link_to "Delete",  list_path(list), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"ms-3 text-danger" %>
+                  </div>
                 </div>
             </div>
+
         <% end %>
       </div>
   </div>
+    <div class="flat-form form-container-index">
+      <h2>Create a New List</h2>
+      <div class="form">
+        <%= simple_form_for List.new do |r| %>
+          <%= r.input :name %>
+          <%= r.input :picture, :label => "Picture URL" %>
+          <%= r.button :submit, class: "btn btn-primary" %>
+          <% end %>
+      </div>
+    </div>
 </div>

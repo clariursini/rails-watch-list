@@ -17,3 +17,36 @@
 .botton-index a {
   color: white;
 }
+
+.form-container-index {
+  margin-top: 50px !important;
+  width: 50%;
+  margin: 0 auto;
+  background-color: white;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.list-delete {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10px;
+  margin-top: 50px;
+}
+
+.list-delete a {
+  font-size: 15px;
+}
+
+.card-content-index {
+  width: 100%;
+  align-self: flex-end;
+  margin-bottom: 10px;
+}
+
+.card-text{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
