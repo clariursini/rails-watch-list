@@ -9,11 +9,12 @@
   <div class="cards-container">
       <div class="container-header">
         <h1>My Lists</h1>
-        <div class="botton-index">
+        <%# <div class="botton-index">
           <%= link_to "Add a new list", new_list_path, class: "btn btn-success" %>
-        </div>
-
+        <%# </div> %>
       </div>
+  </div>
+
       <div class="cards">
         <% @lists.each do |list| %>
             <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= list.picture %>)">
@@ -26,18 +27,16 @@
                   </div>
                 </div>
             </div>
-
         <% end %>
       </div>
+      <div class="flat-form form-container-index">
+        <h2>Create a New List</h2>
+        <div class="form">
+            <%= simple_form_for List.new do |r| %>
+            <%= r.input :name %>
+            <%= r.input :picture, :label => "Picture URL" %>
+            <%= r.button :submit, class: "btn btn-primary" %>
+            <% end %>
+        </div>
   </div>
-    <div class="flat-form form-container-index">
-      <h2>Create a New List</h2>
-      <div class="form">
-        <%= simple_form_for List.new do |r| %>
-          <%= r.input :name %>
-          <%= r.input :picture, :label => "Picture URL" %>
-          <%= r.button :submit, class: "btn btn-primary" %>
-          <% end %>
-      </div>
-    </div>
 </div>
