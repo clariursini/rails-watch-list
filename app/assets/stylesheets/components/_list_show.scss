@@ -1,0 +1,60 @@
+.show {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 5px;
+  height: 300px;
+}
+
+.container-show-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.botton-show {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.list-title {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.card-section {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.rating{
+  display: flex;
+  margin-left: 15px;
+}
+
+.fa-star{
+  font-size: 15px;
+  color: yellow;
+  margin-left: 5px;
+}
+
+.movie-delete {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.botton-show {
+  margin-bottom: 15px;
+}
+
+.botton-show a {
+  color: white;
+}
+
+.btn-warning {
+  font-size: 12px !important;
+  background-color: orange;
+}

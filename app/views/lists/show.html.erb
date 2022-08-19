@@ -1,16 +1,42 @@
-<h1><%= @list.name %> List</h1>
-<p>Details</p>
+<div class="banner show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @list.picture %>);">
+  <div class="container-show botton-show">
+    <p class="btn btn-warning btn-sm"><%= @list.movies.count %> Movies</p>
+  </div>
+  <div class="container list-title">
+    <h1><%= @list.name %> Movies</h1>
+  </div>
+</div>
 
-<% @list.movies.each do |movie| %>
-  <ul>
-    <li>
-      <%= movie.title %>
-      <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
-      <%= link_to "Delete",  bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"ms-3 text-danger" %>
-    </li>
-  </ul>
-<% end %>
+<div class="container-index">
+  <div class="cards-container">
+      <div class="container-show-header">
+        <div class="botton-show">
+          <%= link_to "Add a Movie", new_list_bookmark_path(@list), class: "btn btn-success" %>
+        </div>
+      </div>
+  </div>
 
-<%= link_to "Add a new movie", new_list_bookmark_path(@list)  %>
-
-<br><%= link_to "Back", lists_path %>
+  <div class="cards">
+    <% @list.movies.each do |movie| %>
+    <div class="card-trip">
+      <img src="<%= movie.poster_url %>" />
+      <div class="card-trip-infos">
+        <div class="card-content">
+          <div class="card-section">
+            <h2><%= movie.title %></h2>
+            <div class="rating">
+              <p><%= movie.rating %></p>
+              <i class="fa-solid fa-star"></i>
+            </div>
+          </div>
+          <p><%= movie.overview %></p>
+          <div class="movie-delete">
+              <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+              <%= link_to "Delete",  bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"ms-3 text-danger" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
