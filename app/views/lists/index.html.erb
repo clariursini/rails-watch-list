@@ -17,7 +17,11 @@
 
       <div class="cards">
         <% @lists.each do |list| %>
+          <% if list.photo.key %>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= cl_image_path list.photo.key %>)">
+          <% else %>
             <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= list.picture %>)">
+          <% end %>
                 <div class="card-content-index">
                   <div class="card-text">
                     <%= link_to list.name, list_path(list) %>
@@ -35,6 +39,7 @@
             <%= simple_form_for List.new do |r| %>
             <%= r.input :name %>
             <%= r.input :picture, :label => "Picture URL" %>
+            <%= r.input :photo, as: :file %>
             <%= r.button :submit, class: "btn btn-primary" %>
             <% end %>
         </div>
