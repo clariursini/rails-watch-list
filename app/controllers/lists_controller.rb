@@ -2,6 +2,7 @@ class ListsController < ApplicationController
   before_action :set_list, only: [:show]
   def index
     @lists = List.all
+    @list = List.new
   end
 
   def show
@@ -17,7 +18,7 @@ class ListsController < ApplicationController
     if @list.save
       redirect_to list_path(@list)
     else
-      render :show, status: :unprocessable_entity
+      render :index, status: :unprocessable_entity
     end
   end
 
